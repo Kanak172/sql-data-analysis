@@ -1,49 +1,33 @@
-# Oracle 10g Execution Results & Outputs
-
-This document contains the verified outputs for the 23 analytical SQL queries executed on Oracle 10g.
+# Oracle 10g Verified Execution Results
 
 ---
 
-## 📌 Module A: Data Exploration & Quality Checks
-* **Total Transactions**: 5 records verified.
-* **Date Range**: January 1, 2025 – January 5, 2025.
-* **Data Quality**: 0 nulls detected across primary key (`order_id`) and critical fields.
+## 📌 Module A: Exploration
+* **Total Records**: 15 transactions
+* **Unique Customers**: 9 (`C001` through `C009`)
+* **Date Range**: `2025-01-01` to `2025-01-08`
+* **Null Check**: 0 null records detected across key fields.
 
----
-
-## 📌 Module B: Sales Performance Metrics
-* **Total Revenue**: $88,000.00
-* **Total Units Sold**: 15 units
-* **Average Order Value (AOV)**: $17,600.00
-* **Top Revenue Region**: South ($35,000.00)
-
----
+## 📌 Module B: Sales Performance
+* **Total Revenue**: $207,500.00
+* **Total Units Sold**: 41 units
+* **Average Order Value (AOV)**: $13,833.33
+* **Top Revenue Region**: North ($73,000.00)
 
 ## 📌 Module C: Time-Based Analytics
-* **Monthly Sales (Jan 2025)**: $88,000.00 across 5 orders.
-* **Daily Sales Trend**: Peak daily sales recorded on Jan 2, 2025 ($35,000.00).
+* **January 2025 Total**: $207,500.00
+* **Peak Daily Sales**: Jan 1, 2025 ($59,000.00)
 
----
-
-## 📌 Module D: Customer Spending Insights
-* **Top Customer by Spend**: `C002` ($35,000.00)
-* **Repeat Buyers (`COUNT(order_id) > 1`)**: No records returned (expected, as each customer currently holds 1 order in the baseline dataset).
-
----
+## 📌 Module D: Customer Insights
+* **Top Customer**: `C002` ($57,000.00 across 3 orders)
+* **Repeat Buyers**: `C001` (3 orders), `C002` (3 orders), `C003` (2 orders), `C004` (2 orders)
 
 ## 📌 Module E: Product & Category Analysis
-* **Top Product by Revenue**: Phone ($35,000.00)
-* **Top Category by Revenue**: Electronics ($71,000.00 across 3 orders)
+* **Top Category**: Electronics ($155,500.00)
+* **Top Product**: Laptop ($72,000.00)
 
----
-
-## 📌 Module F: Advanced Analytics (Window Functions & CTEs)
-* **Category Product Ranks (`DENSE_RANK()`)**: 
-  * Electronics Rank 1: Phone ($35,000.00)
-  * Furniture Rank 1: Desk ($9,000.00)
-* **Cumulative Sales Running Total**:
-  * 2025-01-01: $24,000.00
-  * 2025-01-02: $59,000.00
-  * 2025-01-03: $68,000.00
-  * 2025-01-04: $80,000.00
-  * 2025-01-05: $88,000.00
+## 📌 Module F: Advanced Window Functions
+* **Category Ranks (`DENSE_RANK()`)**:
+  * Electronics #1: Laptop ($72,000.00)
+  * Furniture #1: Chair ($30,000.00)
+* **Final Running Total (Jan 8, 2025)**: $207,500.00
